@@ -11,7 +11,8 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class menuFuncoes {
-    public static void adicionarProduto(EstoqueService estoqueService, Scanner scanner) throws SQLException {
+    //FAZ VERIFICAÇÃO PARA ADICIONAR PRODUTO
+    public static void validarProduto(EstoqueService estoqueService, Scanner scanner) throws SQLException {
 
         while (true) {
             String codigo;
@@ -69,6 +70,7 @@ public class menuFuncoes {
         }
     }
 
+    //BUSCA PRODUTO POR CODIGO
     public static void buscarProdutoCodigo(EstoqueService estoqueService, Scanner scanner) throws SQLException {
         try {
             System.out.println("Digite o codigo do produto: ");
@@ -86,7 +88,7 @@ public class menuFuncoes {
 
 
     }
-   
+//FAZ TABELA PARA BANCO DE DADOS
     private Produto mapResultSetToProduto(ResultSet rs) throws SQLException {
         return new Produto(
                 rs.getString("codigo"),

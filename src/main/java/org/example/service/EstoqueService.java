@@ -41,6 +41,7 @@ public class EstoqueService {
         );
     }
 
+    //ADICIONA PRODUTO AO BANCO DE DADOS
     public void adicionarProduto(Produto produto) throws ProdutoJaCadastradoException, NomeJaCadastrado, SQLException {
         Produto existente = buscarPorCodigo(produto.getCodigo());
         Produto nomeExistente = buscarPorNome(produto.getNome());
@@ -67,7 +68,7 @@ public class EstoqueService {
         }
 
     }
-
+//VALIDACAO PARA ADICIONAR PRODUTO A LISTA POR NOME
     public Produto buscarPorNome(String nome) {
 
         for (Produto p : produtos) {
@@ -78,6 +79,7 @@ public class EstoqueService {
         return null;
     }
 
+    //VALIDAÇÃO PARA ADICIONAR PRODUTO A LISTA POR CODIGO
     public Produto buscarPorCodigo(String codigo) throws SQLException {
         String sql = "SELECT * FROM produto WHERE codigo = ?";
         try (Connection conn = ConexaoBD.getConnection();
@@ -90,8 +92,6 @@ public class EstoqueService {
         }
         return null;
     }
-
-
 
 
 }

@@ -7,7 +7,7 @@ import org.example.service.EstoqueService;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-import static org.example.interacao.menuFuncoes.adicionarProduto;
+import static org.example.interacao.menuFuncoes.validarProduto;
 import static org.example.interacao.menuFuncoes.buscarProdutoCodigo;
 
 public class Main {
@@ -29,7 +29,7 @@ public class Main {
             scanner.nextLine();
             switch (opcaoMenu) {
                 case 1:
-                    adicionarProduto(estoqueService, scanner);
+                    validarProduto(estoqueService, scanner);
                     break;
                 case 2:
                     buscarProdutoCodigo(estoqueService, scanner);

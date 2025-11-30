@@ -1,10 +1,8 @@
 package org.example.service;
-
 import org.example.Exception.NomeJaCadastrado;
 import org.example.Exception.ProdutoJaCadastradoException;
 import org.example.conectores.ConexaoBD;
 import org.example.model.Produto;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -91,9 +89,7 @@ public class EstoqueService {
     }
 
     public void mostrarTodosProduto() {
-        for (Produto p : produtos) {
-            p.exibirInfo();
-        }
+
     }
 
     public Produto ApagarProdutoPorCodigo(String codigo) {

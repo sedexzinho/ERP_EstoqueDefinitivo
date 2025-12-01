@@ -1,20 +1,19 @@
 package org.example;
 
 import org.example.conectores.ConexaoBD;
-import org.example.model.Produto;
+import org.example.interacao.MenuFuncoes;
 import org.example.service.EstoqueService;
 
 import java.sql.SQLException;
 import java.util.Scanner;
-
-import static org.example.interacao.menuFuncoes.validarProduto;
-import static org.example.interacao.menuFuncoes.buscarProdutoCodigo;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
         ConexaoBD.inicializarBanco();
         Scanner scanner = new Scanner(System.in);
         EstoqueService estoqueService = new EstoqueService();
+        MenuFuncoes menuFuncoes = new MenuFuncoes();
+
 
         int opcaoMenu = 0;
         while (opcaoMenu != 5) {
@@ -29,22 +28,16 @@ public class Main {
             scanner.nextLine();
             switch (opcaoMenu) {
                 case 1:
-                    validarProduto(estoqueService, scanner);
+                    menuFuncoes.validarProduto(estoqueService, scanner);
                     break;
                 case 2:
-                    buscarProdutoCodigo(estoqueService, scanner);
+                    menuFuncoes.buscarProdutoCodigo(estoqueService, scanner);
                 case 3:
-
+                    menuFuncoes.buscarTodosProdutos(estoqueService, scanner);
             }
 
         }
     }
-
-
-
-
-
-
 }
 
 

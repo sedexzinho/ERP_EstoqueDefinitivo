@@ -1,18 +1,15 @@
 package org.example.interacao;
 
-import org.example.conectores.ConexaoBD;
 import org.example.model.Produto;
 import org.example.service.EstoqueService;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
 
-public class menuFuncoes {
-    //FAZ VERIFICAÇÃO PARA ADICIONAR PRODUTO
-    public static void validarProduto(EstoqueService estoqueService, Scanner scanner) throws SQLException {
+public class MenuFuncoes {
+
+    public void validarProduto(EstoqueService estoqueService, Scanner scanner) throws SQLException {
 
         while (true) {
             String codigo;
@@ -71,7 +68,7 @@ public class menuFuncoes {
     }
 
     //BUSCA PRODUTO POR CODIGO
-    public static void buscarProdutoCodigo(EstoqueService estoqueService, Scanner scanner) throws SQLException {
+    public void buscarProdutoCodigo(EstoqueService estoqueService, Scanner scanner) throws SQLException {
         try {
             System.out.println("Digite o codigo do produto: ");
             String codigo = scanner.next();
@@ -85,17 +82,17 @@ public class menuFuncoes {
         } catch (Exception e) {
             System.out.println("Erro ao buscar: " + e.getMessage());
         }
-
-
     }
-//FAZ TABELA PARA BANCO DE DADOS
-    private Produto mapResultSetToProduto(ResultSet rs) throws SQLException {
-        return new Produto(
-                rs.getString("codigo"),
-                rs.getString("nome"),
-                rs.getDouble("precoCusto"),
-                rs.getDouble("precoVenda"),
-                rs.getInt("quantidadeEstoque")
-        );
+
+    public void buscarTodosProdutos(EstoqueService estoqueService, Scanner scanner) throws SQLException {
+        try {
+            for(Produto p : estoqueService.buscarTodosProdutos()){
+              p.exibirInfo();
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao buscar: " + e.getMessage());
+        }
     }
 }
+
+

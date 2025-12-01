@@ -93,5 +93,23 @@ public class EstoqueService {
         return null;
     }
 
+    public List<Produto> buscarTodosProdutos() throws SQLException {
+        String sql = "SELECT * FROM produto";
+
+        List<Produto> produtos = new ArrayList<>();
+
+        try (Connection conn = ConexaoBD.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Produto p = mapResultSetToProduto(rs);
+                produtos.add(p);
+            }
+        }
+
+        return produtos;
+    }
+
 
 }

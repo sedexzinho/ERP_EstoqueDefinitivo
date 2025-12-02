@@ -5,10 +5,7 @@ import org.example.Exception.ProdutoJaCadastradoException;
 import org.example.conectores.ConexaoBD;
 import org.example.model.Produto;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -109,6 +106,16 @@ public class EstoqueService {
         }
 
         return produtos;
+    }
+
+    public boolean apagarProdutoPorCodigo(String codigo) throws SQLException {
+        String sql =  "DELETE FROM produto WHERE codigo = ?";
+        try (Connection conn = ConexaoBD.getConnection();
+            PreparedStatement smtm =  conn.prepareStatement(sql)){
+               smtm.setString(1,codigo);
+            int linhasAfetadas = smtm.executeUpdate();
+            return linhasAfetadas > 0;
+        }
     }
 
 

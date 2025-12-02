@@ -5,6 +5,7 @@ import org.example.service.EstoqueService;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Scanner;
 
 public class MenuFuncoes {
@@ -86,13 +87,36 @@ public class MenuFuncoes {
 
     public void buscarTodosProdutos(EstoqueService estoqueService, Scanner scanner) throws SQLException {
         try {
-            for(Produto p : estoqueService.buscarTodosProdutos()){
-              p.exibirInfo();
+            List<Produto> produtos = estoqueService.buscarTodosProdutos();
+            if (produtos.isEmpty()){
+                System.out.println("Nenhum produto encontrado\n");
             }
+            for (Produto p : estoqueService.buscarTodosProdutos()) {
+                p.exibirInfo();
+            }
+        } catch (Exception e) {
+            System.out.println("Erro ao buscar: " + e.getMessage());
+
+        }
+    }
+
+    public void RemoverProduto(EstoqueService estoqueService, Scanner scanner) throws SQLException {
+        try {
+            System.out.println("Digite o codigo do produto: ");
+            String codigo = scanner.next();
+
+            boolean removido = estoqueService.apagarProdutoPorCodigo(codigo);
+            if (removido) {
+                System.out.println("Produto removido com sucesso");
+            } else {
+                System.out.println("Produto nao exite");
+            }
+
         } catch (Exception e) {
             System.out.println("Erro ao buscar: " + e.getMessage());
         }
     }
 }
+
 
 

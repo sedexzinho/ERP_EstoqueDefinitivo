@@ -32,15 +32,15 @@ public class Main {
                     break;
                 case 2:
                     menuFuncoes.buscarProdutoCodigo(estoqueService, scanner);
+                    break;
                 case 3:
                     menuFuncoes.buscarTodosProdutos(estoqueService, scanner);
+                    break;
+                case 4:
+                    menuFuncoes.RemoverProduto(estoqueService, scanner);
+                    break;
             }
 
         }
     }
 }
-
-
-
-
-

@@ -119,7 +119,7 @@ public class MenuFuncoes {
         }
     }
 
-    public void atualizarDadosProduto(EstoqueService estoqueService, Scanner scanner) {
+    public void atualizarDadosProduto(EstoqueService estoqueService, Scanner scanner) throws SQLException {
         try {
             System.out.println("Digite o codigo do produto: ");
             String codigoUsuario = scanner.next();
@@ -152,13 +152,21 @@ public class MenuFuncoes {
                         case 2:
                             System.out.println("Digite o novo valor de custo ");
                             Double novoValorCusto = scanner.nextDouble();
-                            boolean valorCompraAtualizado = estoqueService.atualizarPrecoCusto(novoValorCusto, codigoUsuario);
-                            if (valorCompraAtualizado ) {
-                                System.out.println("Valor de Compra atualizado com sucesso");
+                            Produto alterarValorCusto = estoqueService.buscarPorCodigo(codigoUsuario);
+                            if (novoValorCusto < alterarValorCusto.getPrecoVenda()) {
+                                boolean alterarValoresCusto = estoqueService.atualizarPrecoCusto(novoValorCusto, codigoUsuario);
+                                if (alterarValoresCusto) {
+                                    System.out.println("Valor do alterado com sucesso");
+                                }
+                            }else {
+                                System.err.println("O valor de custo que você digitou é maior do que o valor de venda");
                             }
+
                             break;
+
                         case 3:
-                            System.out.println("Digite o novo valor do produto ");
+
+                            System.out.println("Digite o novo valor de venda  produto ");
                             Double novoValorCompra = scanner.nextDouble();
                             boolean valorAtualizadoCompra = estoqueService.atualizarPrecoVenda(novoValorCompra, codigoUsuario);
                             if (valorAtualizadoCompra) {

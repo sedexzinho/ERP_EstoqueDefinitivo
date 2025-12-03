@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EstoqueService {
-
+// ADAPTAR DADOS PARA TP FLOAT
     private static List<Produto> produtos;
 
     public EstoqueService() {
@@ -50,7 +50,7 @@ public class EstoqueService {
         }
 
         produtos.add(produto);
-        String sql = "INSERT INTO produto (codigo, nome, precoCusto, precoVenda, quantidadeEstoque) VALUES (?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO produto (codigo, nome, precoCusto, precoVenda, quantidadeEstoque) VALUES (?, ?, ?, ?, ?)";
         try (Connection conn = ConexaoBD.getConnection()) {
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setString(1, produto.getCodigo());

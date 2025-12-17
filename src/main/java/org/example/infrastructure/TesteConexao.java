@@ -1,4 +1,4 @@
-package org.example.conectores;
+package org.example.infrastructure;
 
 import java.sql.Connection;
 import java.sql.SQLException;

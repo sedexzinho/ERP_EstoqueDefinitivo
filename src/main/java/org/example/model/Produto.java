@@ -1,13 +1,17 @@
 package org.example.model;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Produto {
-    private final String codigo;
+public abstract class Produto {
+
+    private String codigo;
     private String nome;
     private double precoCusto;
     private double precoVenda;
     private int quantidadeEstoque;
+
+
+    public Produto() {
+
+    }
 
     public Produto(String codigo, String nome, double precoCusto, double precoVenda, int quantidadeEstoque) {
         this.codigo = codigo;
@@ -18,9 +22,30 @@ public class Produto {
 
     }
 
-    public String getCodigo() {
-        return codigo;
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
+
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
+    }
+
+    public void setPrecoCusto(double precoCusto) {
+        this.precoCusto = precoCusto;
+    }
+
+    public void setPrecoVenda(double precoVenda) {
+        this.precoVenda = precoVenda;
+    }
+
+    public void setQuantidadeEstoque(int quantidadeEstoque) {
+        this.quantidadeEstoque = quantidadeEstoque;
+    }
+
+
+
+    public String getCodigo() {return codigo;}
 
     public String getNome() {
         return nome;
@@ -38,6 +63,9 @@ public class Produto {
         return quantidadeEstoque;
     }
 
+    public abstract String getNomeCategoria();
+    public abstract String getNomeTabela();
+
     public void exibirInfo() {
         System.out.println("**************************************");
         System.out.println("Codigo do produto: " + getCodigo());
@@ -45,7 +73,8 @@ public class Produto {
         System.out.println("Preco de custo: " + getPrecoCusto());
         System.out.println("Preco de venda: " + getPrecoVenda());
         System.out.println("Quantidade estoque: " + getQuantidadeEstoque());
+        exibirAtributosEspecificos();
         System.out.println("**************************************");
-
     }
+    protected abstract void exibirAtributosEspecificos();
 }

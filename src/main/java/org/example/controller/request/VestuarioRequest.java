@@ -36,13 +36,4 @@ public class VestuarioRequest extends AProdutoRequest {
     }
 
 
-    public void exibirInfo() {
-        System.out.println("**************************************");
-        System.out.println("Nome do produto: " + getNome());
-        System.out.println("Preco de custo: " + getPrecoCusto());
-        System.out.println("Preco de venda: " + getPrecoVenda());
-        System.out.println("Quantidade estoque: " + getQuantidadeEstoque());
-        System.out.println("**************************************");
-
-    }
 }

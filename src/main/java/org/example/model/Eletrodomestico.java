@@ -7,21 +7,25 @@ public class Eletrodomestico extends Produto {
     private int voltagemSuportada;
     private int potenciaWatts;
     private double pesoKG;
-
-    public Eletrodomestico() {
-
-    }
-
-    public Eletrodomestico(String codigo, String nome, double precoCusto, double precoVenda, int quantidadeEstoque,
-                           String marca, double pesoKG, int potenciaWatts, int voltagemSuportada, String cor, String modelo) {
-        super(codigo, nome, precoCusto, precoVenda, quantidadeEstoque);
-        this.marca = marca;
-        this.pesoKG = pesoKG;
-        this.potenciaWatts = potenciaWatts;
-        this.voltagemSuportada = voltagemSuportada;
-        this.cor = cor;
-        this.modelo = modelo;
-    }
+public Eletrodomestico(String codigo,
+                       String nome,
+                       double precoCompra,
+                       Double precoVenda,
+                       int quantidadeEstoque,
+                       String marca,
+                       String modelo,
+                       String cor,
+                       int voltagemSuportada,
+                       int potenciaWatts,
+                       double pesoKG            ) {
+    super(codigo, nome,  precoCompra, precoVenda, quantidadeEstoque);
+    this.marca = marca;
+    this.modelo = modelo;
+    this.cor = cor;
+    this.potenciaWatts = potenciaWatts;
+    this.pesoKG = pesoKG;
+    this.voltagemSuportada = voltagemSuportada;
+}
 
     public String getMarca() {
         return marca;
@@ -83,12 +87,12 @@ public class Eletrodomestico extends Produto {
 
     @Override
     protected void exibirAtributosEspecificos() {
-        System.out.println("Marca: " + getMarca() );
-        System.out.println("Modelo: " + getModelo() );
-        System.out.println("Cor: " + getCor() );
-        System.out.println("Potencia Watts: " + getPotenciaWatts() );
-        System.out.println("Voltagem Suportada: " + getVoltagemSuportada() );
-        System.out.println("Peso KG: " + getPesoKG() );
+        System.out.println("Marca: " + getMarca());
+        System.out.println("Modelo: " + getModelo());
+        System.out.println("Cor: " + getCor());
+        System.out.println("Potencia Watts: " + getPotenciaWatts());
+        System.out.println("Voltagem Suportada: " + getVoltagemSuportada());
+        System.out.println("Peso KG: " + getPesoKG());
 
     }
 

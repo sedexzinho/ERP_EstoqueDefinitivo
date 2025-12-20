@@ -5,7 +5,8 @@ public class Eletronicos extends Produto {
     private int armazenamento;
     private String marca;
     private String modelo;
-public Eletronicos() {}
+
+    public Eletronicos() {}
 
     public Eletronicos(String codigo, String nome, double precoCusto, double precoVenda, int quantidadeEstoque,
                        String tipo, int armazenamento, String marca, String modelo) {

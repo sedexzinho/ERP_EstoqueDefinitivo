@@ -4,13 +4,13 @@ public class Limpeza extends Produto{
     private String volumeML;
     private String tipo;
     private String perfume;
-    private boolean biodegradavel;
+    private String biodegradavel;
 
     public Limpeza() {
     }
 
     public Limpeza(String codigo, String nome, double precoCusto, double precoVenda, int quantidadeEstoque,
-                   boolean biodegradavel, String perfume, String tipo, String volumeML) {
+                   String biodegradavel, String perfume, String tipo, String volumeML) {
         super(codigo, nome, precoCusto, precoVenda, quantidadeEstoque);
         this.biodegradavel = biodegradavel;
         this.perfume = perfume;
@@ -26,11 +26,11 @@ public class Limpeza extends Produto{
         this.volumeML = volumeML;
     }
 
-    public boolean isBiodegradavel() {
+    public String getBiodegradavel() {
         return biodegradavel;
     }
 
-    public void setBiodegradavel(boolean biodegradavel) {
+    public void setBiodegradavel(String biodegradavel) {
         this.biodegradavel = biodegradavel;
     }
 

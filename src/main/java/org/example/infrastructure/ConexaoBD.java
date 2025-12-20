@@ -104,7 +104,7 @@ public class ConexaoBD {
                         volumeML VARCHAR(20),
                         tipo VARCHAR(50),
                         perfume VARCHAR(50),
-                        biodegradavel BOOLEAN
+                        biodegradavel VARCHAR(3)
                     )
                 """;
         executarSQL(sql, "produto_limpeza");

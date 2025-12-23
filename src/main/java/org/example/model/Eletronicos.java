@@ -6,7 +6,8 @@ public class Eletronicos extends Produto {
     private String marca;
     private String modelo;
 
-    public Eletronicos() {}
+    public Eletronicos() {
+    }
 
     public Eletronicos(String codigo, String nome, double precoCusto, double precoVenda, int quantidadeEstoque,
                        String tipo, int armazenamento, String marca, String modelo) {
@@ -16,6 +17,7 @@ public class Eletronicos extends Produto {
         this.modelo = modelo;
         this.armazenamento = armazenamento;
     }
+
 
     public String getTipo() {
         return tipo;
@@ -49,22 +51,5 @@ public class Eletronicos extends Produto {
         this.marca = marca;
     }
 
-    @Override
-    public String getNomeCategoria() {
-        return "Eletronicos";
-    }
 
-    @Override
-    public String getNomeTabela() {
-        return "produto_eletronico";
-    }
-
-    @Override
-    protected void exibirAtributosEspecificos() {
-        System.out.println("Tipo: " + getTipo());
-        System.out.println("Armazenamento: " + getArmazenamento());
-        System.out.println("Marca: " + getMarca());
-        System.out.println("Modelo: " + getModelo());
-
-    }
 }

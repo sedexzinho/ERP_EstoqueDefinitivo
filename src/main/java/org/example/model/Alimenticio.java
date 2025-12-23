@@ -41,22 +41,5 @@ public class Alimenticio extends Produto {
         this.dataValidade = dataValidade;
     }
 
-    @Override
-    public String getNomeCategoria() {
-        return "Alimenticio";
-    }
-
-    @Override
-    public String getNomeTabela() {
-        return "produto_alimenticio";
-    }
-
-    @Override
-    protected void exibirAtributosEspecificos() {
-        System.out.println("Data de Validade: " + dataValidade);
-        System.out.println("Material Embalagem: " + materialEmbalagem);
-        System.out.println("Peso: " + peso);
-    }
-
 
 }

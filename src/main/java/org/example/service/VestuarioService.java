@@ -3,10 +3,12 @@ package org.example.service;
 import org.example.exception.NomeJaCadastrado;
 import org.example.exception.ProdutoJaCadastradoException;
 import org.example.infrastructure.ConexaoBD;
+import org.example.model.Eletronicos;
 import org.example.model.Vestuario;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class VestuarioService extends ConexaoBD {
@@ -34,6 +36,9 @@ public class VestuarioService extends ConexaoBD {
         }
         return vestuario;
     }
+
+
+
 
 
 

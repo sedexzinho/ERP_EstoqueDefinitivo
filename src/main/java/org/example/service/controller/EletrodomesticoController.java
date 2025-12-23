@@ -1,11 +1,12 @@
-package org.example.controller;
+package org.example.service.controller;
 
 import org.example.exception.NomeJaCadastrado;
 import org.example.exception.ProdutoJaCadastradoException;
 import org.example.model.Eletrodomestico;
 import org.example.service.EletrodomesticosService;
-import org.example.service.EstoqueService;
 
+
+import org.example.service.buscarCodigo.BuscarCodigo;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
@@ -14,9 +15,8 @@ import java.sql.SQLException;
 @CrossOrigin(origins = "*")
 @RequestMapping("/api/v1/produtoEletrodomestico")
 public class EletrodomesticoController {
-    EstoqueService estoqueService = new EstoqueService();//        private String marca;
 
-
+    private final BuscarCodigo buscarCodigo =  new BuscarCodigo();
     @PostMapping("/cadastro")
     public String cadastrarProduto(@RequestBody Eletrodomestico eletrodomestico) throws NomeJaCadastrado, SQLException, ProdutoJaCadastradoException {
         Eletrodomestico produto_eletrodomestico = new Eletrodomestico(
@@ -35,5 +35,9 @@ public class EletrodomesticoController {
         EletrodomesticosService.adicionarProdutoEletrodomestico(eletrodomestico);
         String mensagem = "produto cadastrado";
         return mensagem;
+    }
+    @GetMapping("buscarCodigo/{codigo}")
+    public Eletrodomestico getBuscarCodigo(@PathVariable String codigo)throws SQLException {
+        return buscarCodigo.buscarPorCodigoEletrodomestico(codigo);
     }
 }

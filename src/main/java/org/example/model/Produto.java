@@ -63,8 +63,7 @@ public abstract class Produto {
         return quantidadeEstoque;
     }
 
-    public abstract String getNomeCategoria();
-    public abstract String getNomeTabela();
+
 
     public void exibirInfo() {
         System.out.println("**************************************");
@@ -73,8 +72,7 @@ public abstract class Produto {
         System.out.println("Preco de custo: " + getPrecoCusto());
         System.out.println("Preco de venda: " + getPrecoVenda());
         System.out.println("Quantidade estoque: " + getQuantidadeEstoque());
-        exibirAtributosEspecificos();
         System.out.println("**************************************");
     }
-    protected abstract void exibirAtributosEspecificos();
+
 }

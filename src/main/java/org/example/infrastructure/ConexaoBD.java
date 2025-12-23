@@ -84,7 +84,7 @@ public class ConexaoBD {
                         modelo VARCHAR(50),
                         cor VARCHAR(50),
                         voltagemSuportada INT,
-                        potenciaWatts INT,
+                            potenciaWatts INT,
                         pesoKG NUMERIC(10,2)
                     )
                 """;

@@ -7,25 +7,26 @@ public class Eletrodomestico extends Produto {
     private int voltagemSuportada;
     private int potenciaWatts;
     private double pesoKG;
-public Eletrodomestico(String codigo,
-                       String nome,
-                       double precoCompra,
-                       Double precoVenda,
-                       int quantidadeEstoque,
-                       String marca,
-                       String modelo,
-                       String cor,
-                       int voltagemSuportada,
-                       int potenciaWatts,
-                       double pesoKG            ) {
-    super(codigo, nome,  precoCompra, precoVenda, quantidadeEstoque);
-    this.marca = marca;
-    this.modelo = modelo;
-    this.cor = cor;
-    this.potenciaWatts = potenciaWatts;
-    this.pesoKG = pesoKG;
-    this.voltagemSuportada = voltagemSuportada;
-}
+
+    public Eletrodomestico(String codigo,
+                           String nome,
+                           double precoCompra,
+                           Double precoVenda,
+                           int quantidadeEstoque,
+                           String marca,
+                           String modelo,
+                           String cor,
+                           int voltagemSuportada,
+                           int potenciaWatts,
+                           double pesoKG) {
+        super(codigo, nome, precoCompra, precoVenda, quantidadeEstoque);
+        this.marca = marca;
+        this.modelo = modelo;
+        this.cor = cor;
+        this.potenciaWatts = potenciaWatts;
+        this.pesoKG = pesoKG;
+        this.voltagemSuportada = voltagemSuportada;
+    }
 
     public String getMarca() {
         return marca;
@@ -73,27 +74,6 @@ public Eletrodomestico(String codigo,
 
     public void setPesoKG(double pesoKG) {
         this.pesoKG = pesoKG;
-    }
-
-    @Override
-    public String getNomeCategoria() {
-        return "Eletrodomestico";
-    }
-
-    @Override
-    public String getNomeTabela() {
-        return "produto_eletrodomestico";
-    }
-
-    @Override
-    protected void exibirAtributosEspecificos() {
-        System.out.println("Marca: " + getMarca());
-        System.out.println("Modelo: " + getModelo());
-        System.out.println("Cor: " + getCor());
-        System.out.println("Potencia Watts: " + getPotenciaWatts());
-        System.out.println("Voltagem Suportada: " + getVoltagemSuportada());
-        System.out.println("Peso KG: " + getPesoKG());
-
     }
 
 

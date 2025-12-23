@@ -1,6 +1,6 @@
 package org.example.model;
 
-public class Limpeza extends Produto{
+public class Limpeza extends Produto {
     private String volumeML;
     private String tipo;
     private String perfume;
@@ -48,25 +48,6 @@ public class Limpeza extends Produto{
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
-    }
-
-    @Override
-    public String getNomeCategoria() {
-        return "Limpeza";
-    }
-
-    @Override
-    public String getNomeTabela() {
-        return "produto_limpeza";
-    }
-
-    @Override
-    protected void exibirAtributosEspecificos() {
-        System.out.println("Biodegradavel: " + biodegradavel);
-        System.out.println("Perfume: " + perfume);
-        System.out.println("Tipo: " + tipo);
-        System.out.println("VolumeML: " + volumeML);
-
     }
 
 

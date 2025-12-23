@@ -41,22 +41,5 @@ public class Vestuario extends Produto {
         this.cor = cor;
     }
 
-    @Override
-    public String getNomeCategoria() {
-        return "Vestuario";
-    }
-
-    @Override
-    public String getNomeTabela() {
-        return "produto_vestuario";
-    }
-
-    @Override
-    protected void exibirAtributosEspecificos() {
-        System.out.println("Tamamaho: " + tamanho);
-        System.out.println("Cor: " + cor);
-        System.out.println("Tecido: " + tecido);
-    }
-
 
 }
